@@ -35,17 +35,17 @@ int main()
     int a = 3;
     int delta = 0;
     bool repeat = true;
-    while (repeat = true)
+    while (repeat == true)
     {
         cin >> inp;
 
         if (inp == -1)
         {
-            repeat == false;
+            repeat = false;
         }
         else
         {
-            int delta = inp - a;
+            delta = inp - a;
             cout << "Delta: " << delta << ". Enter -1 to exit.\n";
         }
     }
@@ -57,10 +57,22 @@ int main()
 /*
 Warning 1: while (repeat = true)
 HOMEWORK TODO
+"repeat = true" assigns true to the boolean "repeat" at the start of every iteration instead of verifying repeat==true
+the code will esentially never leave the while loop as it is equivalent to while(true).
+"while (repeat == true)" is used instead, as shown.
 
 Warning 2: repeat == false;
 HOMEWORK TODO
+"repeat == false" checks for condition which returns false (i.e. statement has no effect) instead of assigning false to the boolean repeat, 
+the boolean "repeat" will always be true and never be assigned false.
+"repeat = false" is used instead, as shown.
 
 Warning 3: int delta = inp - a;
 HOMEWORK TODO
+delta is previously defined in the main() scope, which means that the "int delta = inp-a;" line 
+creates a new local integer named delta that is SPECIFIC to the while loop scope.
+HOWEVER, the last cout line right before "return 0;" is OUTSIDE the while loop, which means it will use the integer delta in the main() scope,
+which is 0 no matter what value the user inputs.
+To avoid this error, the code is modified to directly use the main() scope integer delta, and avoid creating a loop-specific integer, as shown.
+Alternatively, we could have put the final cout statement into the if(inp == -1) block, so that the int "delta" called would be the while-loop specific one.
 */
