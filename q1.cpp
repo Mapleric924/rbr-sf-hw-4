@@ -51,7 +51,8 @@ int main() {
 }
 
 HOMEWORK TODO: your answer here
-
+Compilation error.
+"hello" and "world" are cstrings that decay to char array pointers, which cannot be used for division.
 
 c.
 
@@ -71,7 +72,9 @@ int main()
 }
 
 HOMEWORK TODO: your answer here
-
+Logic error.
+Outputs "myNum is greater than 10" when the condition is actually for when muNum is less than 10.
+Should be: "myNum is less than 10" and "myNum is 10 or more" in the if and else statement respectively.
 
 d.
 
@@ -83,7 +86,8 @@ int main()
 }
 
 HOMEWORK TODO: your answer here
-
+Runtime error.
+Attempting to divide by zero(int) triggers SIGFPE, due to illegal arithmetic operation.
 */
 
 /*
@@ -95,12 +99,18 @@ Write a simple fix for it in the code below.
 
 What is the code trying to do?
 HOMEWORK TODO
+Present variable a as a percentage of integer b
 
 What is the bug, and why does it happen?
 HOMEWORK TODO
+The bug appears at the line "int percent = a/b * 100;"
+Since a and b are both integers, a/b is considered as integer division,
+and will truncate any non-decimal part, so 3/4 returns 0.
 
 How did you fix it?
 HOMEWORK TODO
+I replaced the numerator with float(a) so a floating-point division, instead of integer division, is performed to preserve decimal places.
+a/float(b) or float(a)/float(b) are also valid fixes with the same logic.
 */
 
 #include <iostream>
@@ -109,7 +119,7 @@ int main()
 {
     int a = 3;
     int b = 4;
-    int percent = (a / b) * 100;
+    int percent = float(a)/b * 100;
     cout << percent << "%" << endl;
     return 0; // returning 0 for main() just means the program ended successfully
 }
