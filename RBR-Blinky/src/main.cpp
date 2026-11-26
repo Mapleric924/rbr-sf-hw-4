@@ -8,7 +8,7 @@
  */
 #include <Arduino.h>
 #include "board.h"
-#define led LED_BUILTIN
+
 // put function declarations here:
 int cycle_time = 1000;
 int duty_rate = 50;
@@ -20,7 +20,7 @@ unsigned long long now, last = 0;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(led, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   pinMode(BUTTON_1, BUTTON_MODE);
   pinMode(BUTTON_2, BUTTON_MODE);
   pinMode(BUTTON_3, BUTTON_MODE);
@@ -58,14 +58,14 @@ void loop() {
   unsigned int offTime = cycle_time - onTime;
   if (flag_LED) {
     if (now - last >= onTime) {
-      digitalWrite(led, LOW);
+      digitalWrite(LED_BUILTIN, LOW);
       last = now;
       flag_LED = false;
     }
   }
   else {
     if (now - last >= offTime) {
-      digitalWrite(led, HIGH);
+      digitalWrite(LED_BUILTIN, HIGH);
       last = now;
       flag_LED = true;
     }
