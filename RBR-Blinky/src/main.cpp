@@ -1,3 +1,11 @@
+/**
+ * @file main.cpp
+ * @author ZHOU Yuen Ho (yhzhou@connect.ust.hk)
+ * @brief LED Blinking program
+ * @details Blinking a LED based on cycle time and duty cycle controlled by button inputs.
+ * @version 1.0.0
+ * @date 2026-11-26
+ */
 #include <Arduino.h>
 #include "board.h"
 #define led LED_BUILTIN
