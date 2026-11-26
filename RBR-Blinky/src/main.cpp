@@ -8,7 +8,7 @@ bool flag_b1 = false;
 bool flag_b2 = false;
 bool flag_b3 = false;
 bool flag_LED = false;
-unsigned long now, last = 0;
+unsigned long long now, last = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -62,9 +62,6 @@ void loop() {
       flag_LED = true;
     }
   }
-
-
-
 }
 
 // put function definitions here:
