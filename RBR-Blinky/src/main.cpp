@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "board.h"
 #define led LED_BUILTIN
 // put function declarations here:
 int myFunction(int, int);
